@@ -42,11 +42,15 @@
     @include tablet {
       margin: 0;
       padding-left: 2.5rem;
-      padding-top: 1rem;
-    }
+      padding-top: 0;
 
-    @include desktop {
-      padding-left: 4rem;
+      p:nth-child(1) {
+        margin-top: 0;
+      }
+
+      @include desktop {
+        padding-left: 4rem;
+      }
     }
   }
 }
