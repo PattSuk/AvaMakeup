@@ -1,5 +1,94 @@
-.main-nav {
+.header {
+  background: $background-color;
+  // box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+
+  @include desktop {
+    padding: 0 12.5vw;
+  }
+
+  &__main {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include tablet {
+      width: auto;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
   &__logo {
-    width: 300px;
+    width: 150px;
+  }
+
+  &__toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      justify-content: center;
+
+      @include desktop {
+        justify-content: space-around;
+      }
+    }
+  }
+
+  &__item {
+    text-align: center;
+    padding: 1rem 2rem;
+  }
+
+  &__link {
+    &:hover {
+      // filter: brightness(150%);
+      opacity: 0.5;
+      border-bottom: 2px solid $primary-text-color;
+    }
+  }
+}
+
+.toggle-icon {
+  position: relative;
+  height: 35px;
+
+  span {
+    width: 30px;
+    height: 5px;
+    position: absolute;
+    background: $primary-text-color;
+    transform: translate(-50%, -50%);
+    border-radius: 3px;
+
+    &:nth-child(1) {
+      top: 20%;
+    }
+    &:nth-child(2) {
+      top: 50%;
+    }
+    &:nth-child(3) {
+      top: 80%;
+    }
+  }
+
+  @include tablet {
+    display: none;
   }
 }

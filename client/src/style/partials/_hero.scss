@@ -1,0 +1,29 @@
+.hero {
+  //   background: linear-gradient(rgba(50, 50, 50, 0.1), rgba(50, 50, 50, 0.1)),
+  //     url("../assets/images/hero.jpg") top center/cover;
+  background: url("../assets/images/hero.jpg") top center/cover;
+  height: 57.19vw;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem 1rem;
+
+  @include tablet {
+    padding: 3rem 1.5rem;
+  }
+
+  @include desktop {
+    padding: 4rem;
+    height: 45vw;
+  }
+
+  &__title {
+    margin: 0;
+    color: $background-color;
+    text-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+    font-size: 21px;
+
+    @include tablet {
+      font-size: 50px;
+    }
+  }
+}
