@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -5,6 +6,7 @@
 
 body {
   margin: 0;
+  font-family: "Sansita Swashed", cursive;
 }
 
 ul {
@@ -18,9 +20,343 @@ li {
 
 a {
   text-decoration: none;
+  color: #683b2b;
 }
 
-.main-nav__logo {
-  width: 300px;
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/fonts/PlayfairDisplay-BlackItalic.woff2") format("woff2"), url("../assets/fonts/PlayfairDisplay-BlackItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/fonts/PlayfairDisplay-Black.woff2") format("woff2"), url("../assets/fonts/PlayfairDisplay-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/fonts/PlayfairDisplay-Bold.woff2") format("woff2"), url("../assets/fonts/PlayfairDisplay-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/fonts/PlayfairDisplay-BoldItalic.woff2") format("woff2"), url("../assets/fonts/PlayfairDisplay-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/fonts/PlayfairDisplay-ExtraBoldItalic.woff2") format("woff2"), url("../assets/fonts/PlayfairDisplay-ExtraBoldItalic.woff") format("woff");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/fonts/PlayfairDisplay-ExtraBold.woff2") format("woff2"), url("../assets/fonts/PlayfairDisplay-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/fonts/PlayfairDisplay-Italic.woff2") format("woff2"), url("../assets/fonts/PlayfairDisplay-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/fonts/PlayfairDisplay-Medium.woff2") format("woff2"), url("../assets/fonts/PlayfairDisplay-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/fonts/PlayfairDisplay-MediumItalic.woff2") format("woff2"), url("../assets/fonts/PlayfairDisplay-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/fonts/PlayfairDisplay-Regular.woff2") format("woff2"), url("../assets/fonts/PlayfairDisplay-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/fonts/PlayfairDisplay-SemiBold.woff2") format("woff2"), url("../assets/fonts/PlayfairDisplay-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/fonts/PlayfairDisplay-SemiBoldItalic.woff2") format("woff2"), url("../assets/fonts/PlayfairDisplay-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+.header {
+  background: #ded1bd;
+}
+
+@media (min-width: 1200px) {
+  .header {
+    padding: 0 12.5vw;
+  }
+}
+
+.header__main {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .header__main {
+    width: auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.header__logo {
+  width: 150px;
+}
+
+.header__toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.header__toggle:focus {
+  outline: none;
+}
+
+@media (min-width: 768px) {
+  .header__toggle {
+    display: none;
+  }
+}
+
+.header__nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .header__nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media (min-width: 768px) and (min-width: 1200px) {
+  .header__nav {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
+.header__item {
+  text-align: center;
+  padding: 1rem 2rem;
+}
+
+.header__link:hover {
+  opacity: 0.5;
+  border-bottom: 2px solid #683b2b;
+}
+
+.toggle-icon {
+  position: relative;
+  height: 35px;
+}
+
+.toggle-icon span {
+  width: 30px;
+  height: 5px;
+  position: absolute;
+  background: #683b2b;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 3px;
+}
+
+.toggle-icon span:nth-child(1) {
+  top: 20%;
+}
+
+.toggle-icon span:nth-child(2) {
+  top: 50%;
+}
+
+.toggle-icon span:nth-child(3) {
+  top: 80%;
+}
+
+@media (min-width: 768px) {
+  .toggle-icon {
+    display: none;
+  }
+}
+
+.hero {
+  background: url("../assets/images/hero.jpg") top center/cover;
+  height: 57.19vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero {
+    padding: 4rem;
+    height: 45vw;
+  }
+}
+
+.hero__title {
+  margin: 0;
+  color: #ded1bd;
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+  font-size: 21px;
+}
+
+@media (min-width: 768px) {
+  .hero__title {
+    font-size: 50px;
+  }
+}
+
+.about {
+  background-color: #faf6f2;
+  padding: 2rem 1rem 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .about {
+    padding: 2rem 1.5rem 0.5rem;
+  }
+}
+
+@media (min-width: 768px) and (min-width: 1200px) {
+  .about {
+    padding: 3rem 12.5vw;
+  }
+}
+
+.about__title {
+  margin: 0;
+}
+
+.about__detail {
+  padding: 1.5rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 768px) {
+  .about__detail {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
+.about__img {
+  width: 60%;
+  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+@media (min-width: 768px) {
+  .about__img {
+    width: 30%;
+  }
+}
+
+.about__text {
+  padding-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .about__text {
+    margin: 0;
+    padding-left: 2.5rem;
+    padding-top: 0;
+  }
+  .about__text p:nth-child(1) {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 768px) and (min-width: 1200px) {
+  .about__text {
+    padding-left: 4rem;
+  }
 }
 /*# sourceMappingURL=App.css.map */
