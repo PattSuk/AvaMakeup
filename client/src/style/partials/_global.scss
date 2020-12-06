@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap");
+
 * {
   box-sizing: border-box;
   // border: 1px dashed lightgrey;
@@ -5,7 +7,8 @@
 
 body {
   margin: 0;
-  font-family: "AvenirNext LT Pro";
+  //   font-family: "AvenirNext LT Pro";
+  font-family: "Sansita Swashed", cursive;
 }
 
 ul {
@@ -19,5 +22,5 @@ li {
 
 a {
   text-decoration: none;
-  color: $primary-text-colour;
+  color: $primary-text-color;
 }

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -5,7 +6,7 @@
 
 body {
   margin: 0;
-  font-family: "AvenirNext LT Pro";
+  font-family: "Sansita Swashed", cursive;
 }
 
 ul {
@@ -203,8 +204,7 @@ a {
 }
 
 .header__link:hover {
-  -webkit-filter: brightness(150%);
-          filter: brightness(150%);
+  opacity: 0.5;
   border-bottom: 2px solid #683b2b;
 }
 
@@ -238,6 +238,122 @@ a {
 @media (min-width: 768px) {
   .toggle-icon {
     display: none;
+  }
+}
+
+.hero {
+  background: url("../assets/images/hero.jpg") top center/cover;
+  height: 57.19vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero {
+    padding: 4rem;
+    height: 45vw;
+  }
+}
+
+.hero__title {
+  margin: 0;
+  color: #ded1bd;
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+  font-size: 21px;
+}
+
+@media (min-width: 768px) {
+  .hero__title {
+    font-size: 50px;
+  }
+}
+
+.about {
+  background-color: #faf6f2;
+  padding: 2rem 1rem 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .about {
+    padding: 2rem 1.5rem 0.5rem;
+  }
+}
+
+@media (min-width: 768px) and (min-width: 1200px) {
+  .about {
+    padding: 3rem 12.5vw;
+  }
+}
+
+.about__title {
+  margin: 0;
+}
+
+.about__detail {
+  padding: 1.5rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 768px) {
+  .about__detail {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
+.about__img {
+  width: 60%;
+  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+@media (min-width: 768px) {
+  .about__img {
+    width: 30%;
+  }
+}
+
+.about__text {
+  padding-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .about__text {
+    margin: 0;
+    padding-left: 2.5rem;
+    padding-top: 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .about__text {
+    padding-left: 4rem;
   }
 }
 /*# sourceMappingURL=App.css.map */

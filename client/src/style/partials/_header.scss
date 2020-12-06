@@ -1,5 +1,6 @@
 .header {
-  background: $background-colour;
+  background: $background-color;
+  // box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
 
   @include desktop {
     padding: 0 12.5vw;
@@ -57,8 +58,9 @@
 
   &__link {
     &:hover {
-      filter: brightness(150%);
-      border-bottom: 2px solid $primary-text-colour;
+      // filter: brightness(150%);
+      opacity: 0.5;
+      border-bottom: 2px solid $primary-text-color;
     }
   }
 }
@@ -71,7 +73,7 @@
     width: 30px;
     height: 5px;
     position: absolute;
-    background: $primary-text-colour;
+    background: $primary-text-color;
     transform: translate(-50%, -50%);
     border-radius: 3px;
 
