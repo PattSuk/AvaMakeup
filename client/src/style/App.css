@@ -1,4 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap");
+.about__img, .service__box {
+  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+.service__btn {
+  width: 8.5rem;
+  text-align: center;
+  border-radius: 5px;
+  padding: 0.5rem;
+  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+  background: #683b2b;
+  color: #faf6f2;
+}
+
+.service__btn:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -21,6 +43,22 @@ li {
 a {
   text-decoration: none;
   color: #683b2b;
+}
+
+section {
+  padding: 2rem 1rem 2.5rem;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding: 2rem 1.5rem 2.5rem;
+  }
+}
+
+@media (min-width: 768px) and (min-width: 1200px) {
+  section {
+    padding: 3rem 12.5vw;
+  }
 }
 
 @font-face {
@@ -119,6 +157,65 @@ a {
   font-display: swap;
 }
 
+h2 {
+  font-size: 24px;
+  line-height: 32px;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}
+
+h3 {
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  h3 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+h4 {
+  font-size: 13px;
+  line-height: 18px;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  h4 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+p {
+  font-size: 13px;
+  line-height: 18px;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+h5,
+label {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
 .header {
   background: #ded1bd;
 }
@@ -157,7 +254,7 @@ a {
 }
 
 .header__logo {
-  width: 150px;
+  width: 200px;
 }
 
 .header__toggle {
@@ -201,6 +298,12 @@ a {
 .header__item {
   text-align: center;
   padding: 1rem 2rem;
+}
+
+@media (min-width: 768px) {
+  .header__item {
+    padding: 0.5rem 2rem;
+  }
 }
 
 .header__link:hover {
@@ -281,27 +384,10 @@ a {
 
 .about {
   background-color: #faf6f2;
-  padding: 2rem 1rem 0.5rem;
-}
-
-@media (min-width: 768px) {
-  .about {
-    padding: 2rem 1.5rem 0.5rem;
-  }
-}
-
-@media (min-width: 768px) and (min-width: 1200px) {
-  .about {
-    padding: 3rem 12.5vw;
-  }
-}
-
-.about__title {
-  margin: 0;
 }
 
 .about__detail {
-  padding: 1.5rem 0;
+  padding-top: 1.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -326,11 +412,14 @@ a {
   }
 }
 
+@media (min-width: 768px) and (min-width: 1200px) {
+  .about__detail {
+    padding-top: 3rem;
+  }
+}
+
 .about__img {
   width: 60%;
-  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
-          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
 }
 
 @media (min-width: 768px) {
@@ -340,7 +429,11 @@ a {
 }
 
 .about__text {
-  padding-top: 0.5rem;
+  padding-top: 1.5rem;
+}
+
+.about__text p:nth-child(2) {
+  margin-top: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -349,14 +442,80 @@ a {
     padding-left: 2.5rem;
     padding-top: 0;
   }
-  .about__text p:nth-child(1) {
-    margin-top: 0;
-  }
 }
 
 @media (min-width: 768px) and (min-width: 1200px) {
   .about__text {
     padding-left: 4rem;
   }
+}
+
+.service {
+  padding-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .service {
+    padding-bottom: 2.5rem;
+  }
+}
+
+.service__subtitle {
+  font-size: 16px;
+}
+
+.service__container {
+  padding: 1.5rem 1rem 0;
+}
+
+@media (min-width: 768px) {
+  .service__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.service__box {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  background: #ded1bd;
+}
+
+@media (min-width: 768px) {
+  .service__box {
+    width: 31%;
+    margin-bottom: 0;
+  }
+}
+
+.service__text {
+  padding: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .service__text {
+    height: 15rem;
+  }
+}
+
+.service__detail {
+  padding-bottom: 0.5rem;
+}
+
+.service__btn-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.service__btn {
+  margin-top: 0.5rem;
 }
 /*# sourceMappingURL=App.css.map */
