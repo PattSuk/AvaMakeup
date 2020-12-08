@@ -1,5 +1,6 @@
 $primary-text-color: #683b2b;
 $background-color: #ded1bd;
+$second-bg-color: #d49e8d;
 $lighter-color: #faf6f2;
 
 %card {
@@ -18,5 +19,14 @@ $lighter-color: #faf6f2;
 
   &:hover {
     box-shadow: none;
+  }
+}
+
+%container {
+  padding: 1.5rem 1rem 0;
+
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
   }
 }

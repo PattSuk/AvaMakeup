@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap");
-.about__img, .service__box {
+.about__img, .service__box, .portfolio__img {
   -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
           box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
@@ -456,7 +456,7 @@ label {
 
 @media (min-width: 768px) {
   .service {
-    padding-bottom: 2.5rem;
+    padding-bottom: 3rem;
   }
 }
 
@@ -517,5 +517,46 @@ label {
 
 .service__btn {
   margin-top: 0.5rem;
+}
+
+.portfolio {
+  background-color: #d49e8d;
+  padding-bottom: 0.5rem;
+}
+
+@media (min-width: 1200px) {
+  .portfolio {
+    padding-bottom: 1rem;
+  }
+}
+
+.portfolio__container {
+  padding: 1.5rem 1rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.portfolio__img {
+  width: 100%;
+  max-width: 288px;
+  margin-bottom: 2rem;
+  height: 288px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.portfolio__img:nth-child(5) {
+  -o-object-position: bottom;
+     object-position: bottom;
+}
+
+.portfolio__img:nth-child(6) {
+  -o-object-position: top;
+     object-position: top;
 }
 /*# sourceMappingURL=App.css.map */

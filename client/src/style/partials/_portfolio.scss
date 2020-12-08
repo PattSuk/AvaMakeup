@@ -1,0 +1,32 @@
+.portfolio {
+  background-color: $second-bg-color;
+  padding-bottom: 0.5rem;
+
+  @include desktop {
+    padding-bottom: 1rem;
+  }
+
+  &__container {
+    padding: 1.5rem 1rem 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  &__img {
+    @extend %card;
+    width: 100%;
+    max-width: 288px;
+    margin-bottom: 2rem;
+    height: 288px;
+    object-fit: cover;
+
+    &:nth-child(5) {
+      object-position: bottom;
+    }
+
+    &:nth-child(6) {
+      object-position: top;
+    }
+  }
+}
