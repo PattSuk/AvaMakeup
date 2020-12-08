@@ -45,18 +45,18 @@ a {
   color: #683b2b;
 }
 
-section {
+section, .footer {
   padding: 2rem 1rem 2.5rem;
 }
 
 @media (min-width: 768px) {
-  section {
+  section, .footer {
     padding: 2rem 1.5rem 2.5rem;
   }
 }
 
 @media (min-width: 768px) and (min-width: 1200px) {
-  section {
+  section, .footer {
     padding: 3rem 12.5vw;
   }
 }
@@ -383,7 +383,7 @@ label {
 }
 
 .about {
-  background-color: #faf6f2;
+  background-color: #d49e8d;
 }
 
 .about__detail {
@@ -520,11 +520,11 @@ label {
 }
 
 .portfolio {
-  background-color: #d49e8d;
+  background-color: #faf6f2;
   padding-bottom: 0.5rem;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   .portfolio {
     padding-bottom: 1rem;
   }
@@ -544,7 +544,7 @@ label {
 .portfolio__img {
   width: 100%;
   max-width: 288px;
-  margin-bottom: 2rem;
+  margin: 0 0.5rem 2rem;
   height: 288px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -558,5 +558,54 @@ label {
 .portfolio__img:nth-child(6) {
   -o-object-position: top;
      object-position: top;
+}
+
+.footer {
+  background: #683b2b;
+  color: #ded1bd;
+  padding-bottom: 1.5rem;
+}
+
+.footer__logo {
+  width: 200px;
+}
+
+.footer__container {
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .footer__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.footer__icons-box {
+  padding: 1rem 0;
+}
+
+.footer__icon {
+  height: 30px;
+}
+
+.footer__icon:nth-child(1) {
+  margin-right: 2rem;
+}
+
+.footer__mail {
+  padding: 0.5rem 0;
+}
+
+.footer__mail a {
+  color: #ded1bd;
 }
 /*# sourceMappingURL=App.css.map */
