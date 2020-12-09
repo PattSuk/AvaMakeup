@@ -1,6 +1,6 @@
 function Portfolio () {
     return (
-        <section className="portfolio">
+        <section className="portfolio" id="portfolio">
             <h2>Portfolio</h2>
             <div className="portfolio__container">
                 <img className="portfolio__img" src="./images/customer1.jpg" />
