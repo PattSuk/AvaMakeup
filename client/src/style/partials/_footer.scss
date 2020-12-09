@@ -1,0 +1,39 @@
+.footer {
+  @extend section;
+  background: $primary-text-color;
+  color: $background-color;
+  padding-bottom: 1.5rem;
+
+  &__logo {
+    width: 200px;
+  }
+
+  &__container {
+    padding: 0 1.5rem;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+
+  &__icons-box {
+    padding: 1rem 0;
+  }
+
+  &__icon {
+    height: 30px;
+
+    &:nth-child(1) {
+      margin-right: 2rem;
+    }
+  }
+
+  &__mail {
+    padding: 0.5rem 0;
+    a {
+      color: $background-color;
+    }
+  }
+}

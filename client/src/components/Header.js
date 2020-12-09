@@ -26,10 +26,10 @@ function Header(props) {
                 </button>
             </div>
             <nav className="header__nav">
-                <li className="header__item"><Link className="header__link" to="/#about">About</Link></li>
-                <li className="header__item"><Link className="header__link" to="/#service">Service</Link></li>
-                <li className="header__item"><Link className="header__link" to="/#portfolio">Portfolio</Link></li>
-                <li className="header__item"><Link className="header__link" to="/#contact">Contact</Link></li>
+                <li className="header__item"><a className="header__link" href="/#about" >About</a></li>
+                <li className="header__item"><a className="header__link" href="/#service">Service</a></li>
+                <li className="header__item"><a className="header__link" href="/#portfolio">Portfolio</a></li>
+                <li className="header__item"><Link className="header__link" to="/contact">Contact</Link></li>
             </nav>
         </header>
     )

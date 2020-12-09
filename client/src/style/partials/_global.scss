@@ -24,3 +24,15 @@ a {
   text-decoration: none;
   color: $primary-text-color;
 }
+
+section {
+  padding: 2rem 1rem 2.5rem;
+
+  @include tablet {
+    padding: 2rem 1.5rem 2.5rem;
+
+    @include desktop {
+      padding: 3rem 12.5vw;
+    }
+  }
+}
