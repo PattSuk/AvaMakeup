@@ -10,8 +10,8 @@ function Footer () {
             <Link to="/"><img className="footer__logo" src={logo_lighter} alt="logo" /></Link>
             <div className="footer__container">
                 <div className="footer__icons-box">
-                    <a href="https://www.facebook.com/eve.montolvit"><img className="footer__icon" src={facebook} alt="facebook icon" /></a>
-                    <a href="https://www.instagram.com/eve_avalifestyle/"><img className="footer__icon" src={instagram} alt="instagram icon" /></a>
+                    <a target="_blank" rel="noreferrer" href="https://www.facebook.com/eve.montolvit"><img className="footer__icon" src={facebook} alt="facebook icon" /></a>
+                    <a target="_blank" rel="noreferrer" href="https://www.instagram.com/eve_avalifestyle/"><img className="footer__icon" src={instagram} alt="instagram icon" /></a>
                 </div>
                 <div className="footer__text">
                     <p className="footer__mail"><a href="mailto:vanvara.m@gmail.com">vanvara.m@gmail.com</a></p>
