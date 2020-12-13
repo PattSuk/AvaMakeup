@@ -18,7 +18,8 @@ function Services () {
                         <p className="service__detail">* Touch ups on the wedding day available upon request for an additional fee</p>
                     </div>
                     <div className="service__btn-box">
-                            <Link className="service__btn" to="/booking">Book Now</Link>
+                            {/* <Link className="service__btn" to="/booking" >Book Now</Link> */}
+                            <Link className="service__btn" to={{pathname:`/booking`, state:{event:'Wedding', optionOne:'Photo Shoot', optionTwo:'Special Occasion'}}} >Book Now</Link>
                     </div>
                 </div>
                 <div className="service__box">
@@ -33,7 +34,7 @@ function Services () {
                         <p className="service__detail">* Touch ups on the same day available upon request for an additional fee</p>
                     </div>
                     <div className="service__btn-box">
-                            <Link className="service__btn" to="/booking">Book Now</Link>
+                            <Link className="service__btn" to={{pathname:`/booking`, state:{event:'Photo Shoot', optionOne:'Wedding', optionTwo:'Special Occasion'}}} >Book Now</Link>
                     </div>
                 </div>
                 <div className="service__box">
@@ -48,7 +49,7 @@ function Services () {
                         <p className="service__detail">* Touch ups on the same day available upon request for an additional fee</p>
                     </div>
                     <div className="service__btn-box">
-                            <Link className="service__btn" to="/booking">Book Now</Link>
+                            <Link className="service__btn" to={{pathname:`/booking`, state:{event:'Special Occasion', optionOne:'Wedding', optionTwo:'Photo Shoot'}}} >Book Now</Link>
                     </div>
                 </div>
             </div>

@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap");
-.about__img, .service__box, .portfolio__img {
+.about__img, .service__box, .portfolio__img, .login__form, .booking__form {
   -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
           box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
 }
 
-.service__btn {
+.service__btn, .login__btn, .booking__submit {
   width: 8.5rem;
   text-align: center;
   border-radius: 5px;
@@ -16,9 +16,23 @@
   color: #faf6f2;
 }
 
-.service__btn:hover {
+.service__btn:hover, .login__btn:hover, .booking__submit:hover {
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+.login__input, .booking__input {
+  font-family: "Sansita Swashed", cursive;
+  border: 1px solid #ded1bd;
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+  -webkit-box-shadow: inset 0 2px 4px 0 #ded1bd80;
+          box-shadow: inset 0 2px 4px 0 #ded1bd80;
+}
+
+.login__input:focus, .booking__input:focus {
+  outline: none;
+  border: 1.5px solid #b08401;
 }
 
 * {
@@ -59,6 +73,10 @@ section, .footer {
   section, .footer {
     padding: 3rem 12.5vw;
   }
+}
+
+textarea {
+  resize: none;
 }
 
 @font-face {
@@ -607,5 +625,142 @@ label {
 
 .footer__mail a {
   color: #ded1bd;
+}
+
+.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login__title {
+  font-size: 50px;
+  margin-top: 0;
+}
+
+.login__img {
+  height: 100px;
+  width: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+}
+
+.login__form {
+  border: 1px solid #ded1bd;
+  background: #faf6f2;
+  padding: 2rem 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login__label {
+  display: inline-block;
+  width: 30%;
+  margin-bottom: 0.5rem;
+}
+
+.login__input {
+  width: 70%;
+}
+
+.login__btn {
+  font-family: "Sansita Swashed", cursive;
+  border: none;
+  margin-top: 1rem;
+}
+
+.login__btn:focus {
+  outline: 0;
+}
+
+.booking__form {
+  border: 1px solid #ded1bd;
+  background: #faf6f2;
+}
+
+.booking__section {
+  padding: 1rem;
+}
+
+.booking__subtitle {
+  padding-bottom: 0.5rem;
+  font-size: 21px;
+}
+
+.booking__label {
+  display: block;
+  padding-top: 1rem;
+  padding-bottom: 0.25rem;
+}
+
+.booking__input {
+  width: 100%;
+}
+
+.booking__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.booking__submit {
+  font-family: "Sansita Swashed", cursive;
+  border: none;
+  margin: 0.5rem 0 2rem;
+}
+
+.booking__submit:focus {
+  outline: 0;
+}
+
+.validation-error .booking__input {
+  border: 1px solid #c94515;
+}
+
+.validation-error[data-error]::after, .phone-error[phone-format]::after, .email-error[email-format]::after {
+  content: attr(data-error);
+  background: url("../assets/icons/error-24px.svg") no-repeat 0% 90%;
+  background-size: 6%;
+  display: block;
+  color: #c94515;
+  padding-left: 1.25rem;
+  padding-top: 4px;
+  font-size: 12px;
+}
+
+.phone-error .booking__input {
+  border: 1px solid #c94515;
+}
+
+.phone-error[phone-format]::after {
+  content: attr(phone-format);
+}
+
+.email-error .booking__input {
+  border: 1px solid #c94515;
+}
+
+.email-error[email-format]::after {
+  content: attr(email-format);
 }
 /*# sourceMappingURL=App.css.map */

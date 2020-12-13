@@ -1,4 +1,3 @@
-// import profile from '../assets/images/profile-with-pumpkin.jpg';
 import profile from '../assets/images/profile.jpg';
 
 function About () {
