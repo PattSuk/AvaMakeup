@@ -3,21 +3,46 @@
     @extend %card;
     border: 1px solid $background-color;
     background: $lighter-color;
+
+    @include tablet {
+      margin: 1.5rem 1rem 0;
+    }
   }
 
   &__section {
     padding: 1rem;
+
+    @include tablet {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 
   &__subtitle {
     padding-bottom: 0.5rem;
     font-size: 21px;
+
+    @include tablet {
+      width: 100%;
+    }
   }
 
   &__label {
     display: block;
     padding-top: 1rem;
     padding-bottom: 0.25rem;
+
+    @include tablet {
+      width: 18%;
+    }
+  }
+
+  &__container {
+    @include tablet {
+      padding-top: 1rem;
+      width: 32%;
+      padding-right: 4%;
+    }
   }
 
   &__input {

@@ -1,5 +1,6 @@
 // import { newCustomer } from "../../../server/model/customerModel";
 import axios from 'axios';
+import swal from 'sweetalert';
 
 function Booking (props) {
     const newAppointment = (event) => {
@@ -9,11 +10,11 @@ function Booking (props) {
             
             let eventId;
             if(form.event.value==="Wedding") {
-                eventId="1";
+                eventId="3";
             }else if(form.event.value==="Special Occasion") {
                 eventId="2";
             }else if (form.event.value==="Photo Shoot") {
-                eventId="3";
+                eventId="1";
             }
             
             axios.post(`http://localhost:5000/customers`,{
@@ -29,7 +30,8 @@ function Booking (props) {
                 message: form.message.value,
                 eventId: eventId
             }).then((_response) => {
-                alert("Please give us up to 24 hours to reply.")
+                swal("Thank you for booking with us!", "Please give us up to 24 hours to reply.", "success");
+                // alert("Please give us up to 24 hours to reply.")
             }).catch((error) => {
                 console.log(error);
             });
@@ -133,38 +135,38 @@ function Booking (props) {
                 <div className="booking__section">
                     <h2 className="booking__subtitle">Contact Details</h2>
                     <label className="booking__label">First Name</label>
-                    <div className="input-container" data-error="This field is required">
+                    <div className="booking__container" data-error="This field is required">
                         <input className="booking__input" type="text" name="firstName" />
                     </div>
                     <label className="booking__label">Last Name</label>
-                    <div className="input-container" data-error="This field is required">
+                    <div className="booking__container" data-error="This field is required">
                         <input className="booking__input" type="text" name="lastName" />
                     </div>
-                    <label className="booking__label">Get Ready Address</label>
-                    <div className="input-container" data-error="This field is required">
+                    <label className="booking__label">Getting Ready Location</label>
+                    <div className="booking__container" data-error="This field is required">
                         <input className="booking__input" type="text" name="streetAddress" />
                     </div>
                     <label className="booking__label">City</label>
-                    <div className="input-container" data-error="This field is required">
+                    <div className="booking__container" data-error="This field is required">
                         <input className="booking__input" type="text" name="city" />
                     </div>
                     <label className="booking__label">Postal Code</label>
-                    <div className="input-container" data-error="This field is required">
+                    <div className="booking__container" data-error="This field is required">
                         <input className="booking__input" type="text" name="postalCode" />
                     </div>
                     <label className="booking__label">Phone Number</label>
-                    <div className="input-container" phone-format="Please enter 10 digits of phone number" data-error="This field is required">
+                    <div className="booking__container" phone-format="Please enter 10 digits of phone number" data-error="This field is required">
                         <input className="booking__input" type="text" name="phone" />
                     </div>
                     <label className="booking__label">Email</label>
-                    <div className="input-container" email-format="Please enter a valid email" data-error="This field is required">
+                    <div className="booking__container" email-format="Please enter a valid email" data-error="This field is required">
                         <input className="booking__input" type="text" name="email" />
                     </div>
                 </div>
                 <div className="booking__section">
                     <h2 className="booking__subtitle">Appointment Details</h2>
                     <label className="booking__label">Type of Event</label>
-                    <div className="input-container" data-error="This field is required">
+                    <div className="booking__container" data-error="This field is required">
                         <select name="event" className="booking__input">
                             <option value={props.location.state.event}>{props.location.state.event}</option>
                             <option value={props.location.state.optionOne}>{props.location.state.optionOne}</option>
@@ -173,15 +175,15 @@ function Booking (props) {
                         {/* <input className="booking__input" type="text" name="event" defaultValue={props.location.state.event} /> */}
                     </div>
                     <label className="booking__label">Event Date &amp; Time</label>
-                    <div className="input-container" data-error="Please select the date and time">
+                    <div className="booking__container" data-error="Please select the date and time">
                         <input className="booking__input" type="datetime-local" name="datetime" />
                     </div>
                     <label className="booking__label">Upload your photo with natural light</label>
-                    <div className="input-container" data-error="Please upload a photo">
+                    <div className="booking__container" data-error="Please upload a photo">
                         <input type="file" name="image" />
                     </div>
                     <label className="booking__label">Messages</label>
-                    <div className="input-container" data-error="This field is required">
+                    <div className="booking__container" data-error="This field is required">
                         <textarea className="booking__input" name="message"></textarea>
                     </div>
                 </div>
