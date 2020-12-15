@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap");
-.about__img, .service__box, .portfolio__img, .login__form, .booking__form {
+.about__img, .service__box, .portfolio__img, .contact__img, .login__form, .booking__form {
   -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
           box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
@@ -578,6 +578,85 @@ label {
      object-position: top;
 }
 
+@media (min-width: 768px) {
+  .contact__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.contact__details {
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .contact__details {
+    width: 50%;
+  }
+}
+
+.contact__title {
+  margin-top: 0;
+  font-size: 35px;
+}
+
+@media (min-width: 768px) {
+  .contact__title {
+    font-size: 45px;
+  }
+}
+
+.contact__text {
+  margin-bottom: 1rem;
+  font-size: 15px;
+}
+
+@media (min-width: 768px) {
+  .contact__text {
+    font-size: 18px;
+  }
+}
+
+.contact__email {
+  color: #d49e8d;
+}
+
+.contact__social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contact__follow {
+  font-size: 15px;
+}
+
+@media (min-width: 768px) {
+  .contact__follow {
+    font-size: 18px;
+  }
+}
+
+.contact__icon {
+  height: 30px;
+  margin-left: 0.5rem;
+}
+
+.contact__img {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .contact__img {
+    width: 50%;
+    margin-top: 1rem;
+  }
+}
+
 .footer {
   background: #683b2b;
   color: #ded1bd;
@@ -670,14 +749,16 @@ label {
           align-items: center;
 }
 
-.login__label {
-  display: inline-block;
-  width: 30%;
+.login__line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin-bottom: 0.5rem;
 }
 
-.login__input {
-  width: 70%;
+.login__label {
+  width: 30%;
+  margin-right: 0.5rem;
 }
 
 .login__btn {
@@ -688,6 +769,10 @@ label {
 
 .login__btn:focus {
   outline: 0;
+}
+
+.validation-error .login__input {
+  border: 1px solid #c94515;
 }
 
 .booking__form {
