@@ -9,7 +9,7 @@ const getAllAppointments = async (_req, res) => {
 }
 
 const newCustomer = async (req, res) => {
-    // console.log(req.body);
+    console.log(req.files);
     const {firstName, lastName, streetAddress, city, postalCode, phone, email, datetime, image, message, eventId} = req.body;
     if(!firstName || !lastName || !streetAddress || !city || !postalCode || !phone || !email || !datetime || !image || !eventId) {
         res.status(400).json({
@@ -21,9 +21,11 @@ const newCustomer = async (req, res) => {
     await customerModel.newCustomer(firstName, lastName, streetAddress, city, postalCode, phone, email, 
         datetime, image, message, eventId)
         .then (() => res.status(201)
-        .json({
+            .json({
             message: "Created a new customer"
-        }))
+        })).catch(error => {
+            console.log(error);
+        })
    }
 }
 

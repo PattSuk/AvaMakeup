@@ -1,13 +1,31 @@
 // import { newCustomer } from "../../../server/model/customerModel";
 import axios from 'axios';
+import { useState } from 'react';
 import swal from 'sweetalert';
 
 function Booking (props) {
+    const [image, setImage] = useState("");
+
+    const onChange = (e) => {
+        // console.log(e.target.files);
+        setImage(e.target.files[0]);
+    }
+
     const newAppointment = (event) => {
         event.preventDefault();
+
+        const formData = new FormData();
+        // Update the formData object
+        formData.append(
+        'myFile', image
+        );
+        // console.log(formData);
+        // Details of the uploaded file
+        // console.log(this.state.selectedFile);
+
+
         const form = event.target;
         if (validateSubmit(form) && phoneValidation(form) && emailValidation(form)) {
-            
             let eventId;
             if(form.event.value==="Wedding") {
                 eventId="3";
@@ -16,7 +34,8 @@ function Booking (props) {
             }else if (form.event.value==="Photo Shoot") {
                 eventId="1";
             }
-            
+            console.log(formData);
+            console.log(image);
             axios.post(`http://localhost:5000/customers`,{
                 firstName: form.firstName.value,
                 lastName: form.lastName.value,
@@ -26,19 +45,21 @@ function Booking (props) {
                 phone: form.phone.value,
                 email: form.email.value,
                 datetime: form.datetime.value,
-                image: form.image.value,
+                image: formData,
                 message: form.message.value,
                 eventId: eventId
             }).then((_response) => {
-                swal("Thank you for booking with us!", "Please give us up to 24 hours to reply.", "success");
-                // alert("Please give us up to 24 hours to reply.")
+                // swal("Thank you for booking with us!", "Please give us up to 24 hours to reply.", "success");
+                alert("Please give us up to 24 hours to reply.")
             }).catch((error) => {
                 console.log(error);
             });
 
-            form.reset();
+            // form.reset();
         }
     }
+
+
 
     const phoneValidation = (form) => {
         const phoneFormat = /^\d{10}$/;
@@ -131,7 +152,7 @@ function Booking (props) {
     return (
         <section className="booking">
             <h1 className="booking__title">Schedule an Appointment</h1>
-            <form className="booking__form" onSubmit={(e) => newAppointment(e)}>
+            <form className="booking__form" onSubmit={ newAppointment } encType="multipart/form-data" >
                 <div className="booking__section">
                     <h2 className="booking__subtitle">Contact Details</h2>
                     <label className="booking__label">First Name</label>
@@ -180,7 +201,7 @@ function Booking (props) {
                     </div>
                     <label className="booking__label">Upload your photo with natural light</label>
                     <div className="booking__container" data-error="Please upload a photo">
-                        <input type="file" name="image" />
+                        <input type="file" name="image" onChange={(e) => onChange(e)} />
                     </div>
                     <label className="booking__label">Messages</label>
                     <div className="booking__container" data-error="This field is required">
