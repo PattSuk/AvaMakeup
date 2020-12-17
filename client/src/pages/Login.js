@@ -1,5 +1,6 @@
 import { Redirect, useHistory } from 'react-router-dom';
 import axios from 'axios';
+// import swal from 'sweetalert';
 import profile from '../assets/images/profile-with-pumpkin.svg';
 
 function Login () {
@@ -7,7 +8,7 @@ function Login () {
 
     const logIn = (event) => {
         event.preventDefault();
-        console.log(event);
+        // console.log(event);
         const form = event.target;
         
         if (validateSubmit(form)) {
@@ -17,8 +18,10 @@ function Login () {
             },
             {
                 withCredentials: true
-            }).then((res) => {
-                if (handleStatus(res.status, form)) {
+            })
+            .then((res) => {
+                if (handleStatus(res.status)) {
+                    // console.log(res);
                     sessionStorage.setItem("loggedIn", res.data.user);
                     history.push('/appointments')
                 }
@@ -27,8 +30,10 @@ function Login () {
         }
     }
 
-    const handleStatus = (status, form) => {
+    const handleStatus = (status) => {
         if (status === 404) {
+            // swal("The username or password is incorrect", "error");
+            alert("The username or password is incorrect!");
             return false;
         }
         if (status === 200) {

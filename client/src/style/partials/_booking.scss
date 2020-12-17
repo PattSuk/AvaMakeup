@@ -75,7 +75,7 @@
   &[data-error]::after {
     content: attr(data-error);
     background: url("../assets/icons/error-24px.svg") no-repeat 0% 90%;
-    background-size: 6%;
+    background-size: 15px;
     display: block;
     color: $error-color;
     padding-left: 1.25rem;

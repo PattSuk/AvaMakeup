@@ -1,7 +1,14 @@
-// const fs = require('fs');
-// const path = require('path');
-// const {v4:uuidv4} = require('uuid');
 const prisma = require('../prismaClient');
+
+// const newImage = async (fileName) => {
+//     return await prisma.image.create({
+//         data: {
+//             fileName:fileName
+//         }
+//     }).then((data) => {
+//         console.log(data);
+//     })
+// }
 
 const newCustomer = async (firstName, lastName, streetAddress, city, 
     postalCode, phone, email, datetime, image, message, eventId) => {
@@ -17,11 +24,15 @@ const newCustomer = async (firstName, lastName, streetAddress, city,
             Appointment: {
                 create: {
                     datetime: new Date(datetime),
-                    image: image,
                     message: message,
                     Event: {
                         connect: {
                             id: parseInt(eventId)
+                        }
+                    },
+                    Image: {
+                        create: {
+                            fileName: image
                         }
                     }
                 }
@@ -50,8 +61,20 @@ const getAllAppointments = async() => {
         include: {
             User:true,
             Event: true
-        },
+        }
     })
 }
 
-module.exports = {newCustomer, getAllAppointments}
+const getAppointmentById = async(id) => {
+    // console.log(id);
+    return await prisma.appointment.findUnique({
+        where: { id: parseInt(id) },
+        include: {
+            User: true,
+            Event: true,
+            Image: true
+        }
+    })
+}
+
+module.exports = {newCustomer, getAllAppointments, getAppointmentById}

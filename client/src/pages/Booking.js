@@ -1,30 +1,16 @@
 // import { newCustomer } from "../../../server/model/customerModel";
 import axios from 'axios';
-import { useState } from 'react';
-// import swal from 'sweetalert';
+// import { useState } from 'react';
+import swal from 'sweetalert';
 
 function Booking (props) {
-    const [image, setImage] = useState({});
-
-    const onChange = (e) => {
-        const file = e.target.files[0];
-        console.log(file);
-        setImage({file});
-        console.log(image);
-    }
 
     const newAppointment = (event) => {
         event.preventDefault();
 
-        console.log(image);
         const formData = new FormData();
         // Update the formData object
-        formData.append(
-        'myFile', image
-        );
-        console.log(formData);
-        // Details of the uploaded file
-        // console.log(this.state.selectedFile);
+        formData.append('myFile', event.target.image.files[0]);
 
 
         const form = event.target;
@@ -37,23 +23,32 @@ function Booking (props) {
             }else if (form.event.value==="Photo Shoot") {
                 eventId="1";
             }
-            console.log(formData);
-            console.log(image);
-            axios.post(`http://localhost:5000/customers`,{
-                firstName: form.firstName.value,
-                lastName: form.lastName.value,
-                streetAddress: form.streetAddress.value,
-                city: form.city.value,
-                postalCode: form.postalCode.value,
-                phone: form.phone.value,
-                email: form.email.value,
-                datetime: form.datetime.value,
-                image: formData,
-                message: form.message.value,
-                eventId: eventId
-            }).then((_response) => {
-                // swal("Thank you for booking with us!", "Please give us up to 24 hours to reply.", "success");
-                alert("Please give us up to 24 hours to reply.")
+
+           const data = {firstName: form.firstName.value,
+            lastName: form.lastName.value,
+            streetAddress: form.streetAddress.value,
+            city: form.city.value,
+            postalCode: form.postalCode.value,
+            phone: form.phone.value,
+            email: form.email.value,
+            datetime: form.datetime.value,
+            message: form.message.value,
+            eventId: eventId
+        }
+
+            axios.post(`http://localhost:5000/customers/photos`, formData)
+                .then((res) => { return res.data.name })
+                .then((file) => {
+
+                    data.image = file
+                    console.log(data);
+                    console.log(form.firstName.value);
+                    axios.post(`http://localhost:5000/customers`, data)
+
+                })
+                .then((_response) => {
+                swal("Thank you for booking with us!", "Please give us up to 24 hours to reply.", "success");
+                // alert("Please give us up to 24 hours to reply.")
             }).catch((error) => {
                 console.log(error);
             });
@@ -204,7 +199,7 @@ function Booking (props) {
                     </div>
                     <label className="booking__label">Upload your photo with natural light</label>
                     <div className="booking__container" data-error="Please upload a photo">
-                        <input type="file" name="image" onChange={(e) => onChange(e)} />
+                        <input type="file" name="image" />
                     </div>
                     <label className="booking__label">Messages</label>
                     <div className="booking__container" data-error="This field is required">

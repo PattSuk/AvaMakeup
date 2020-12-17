@@ -8,6 +8,7 @@ import Booking from './pages/Booking';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Appointments from './pages/Appointments';
+import AppointmentsItem from './pages/AppointmentItem';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,7 +20,8 @@ ReactDOM.render(
         <Route path="/booking" component={Booking} />
         <Route path="/contact" component={Contact} />
         <Route path="/login" component={Login} />
-        <Route path="/appointments" component={Appointments} />
+        <Route path="/appointments" exact component={Appointments} />
+        <Route path="/appointments/:id" render = {(routerprops) => {return <AppointmentsItem routerprops={routerprops} />}} />
       </Switch>
     </BrowserRouter>
   </React.StrictMode>,

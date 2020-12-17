@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap");
-.about__img, .service__box, .portfolio__img, .contact__img, .login__form, .booking__form {
+.about__img, .service__box, .portfolio__img, .contact__img, .login__form, .booking__form, .appointments__item, .item__container {
   -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
           box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
 }
 
-.service__btn, .login__btn, .booking__submit {
+.service__btn, .login__btn, .booking__submit, .appointments__btn, .item__btn {
   width: 8.5rem;
   text-align: center;
   border-radius: 5px;
@@ -16,12 +16,12 @@
   color: #faf6f2;
 }
 
-.service__btn:hover, .login__btn:hover, .booking__submit:hover {
+.service__btn:hover, .login__btn:hover, .booking__submit:hover, .appointments__btn:hover, .item__btn:hover {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-.login__input, .booking__input {
+.login__input, .booking__input, .appointments__filter {
   font-family: "Sansita Swashed", cursive;
   border: 1px solid #ded1bd;
   border-radius: 5px;
@@ -30,7 +30,7 @@
           box-shadow: inset 0 2px 4px 0 #ded1bd80;
 }
 
-.login__input:focus, .booking__input:focus {
+.login__input:focus, .booking__input:focus, .appointments__filter:focus {
   outline: none;
   border: 1.5px solid #b08401;
 }
@@ -510,6 +510,12 @@ label {
   }
 }
 
+@media (min-width: 768px) and (min-width: 1200px) {
+  .service__box {
+    padding: 1.5rem;
+  }
+}
+
 .service__text {
   padding: 0.5rem;
 }
@@ -861,7 +867,7 @@ label {
 .validation-error[data-error]::after, .phone-error[phone-format]::after, .email-error[email-format]::after {
   content: attr(data-error);
   background: url("../assets/icons/error-24px.svg") no-repeat 0% 90%;
-  background-size: 6%;
+  background-size: 15px;
   display: block;
   color: #c94515;
   padding-left: 1.25rem;
@@ -883,5 +889,122 @@ label {
 
 .email-error[email-format]::after {
   content: attr(email-format);
+}
+
+.appointments__title {
+  margin-top: 0;
+}
+
+.appointments__filter {
+  margin-left: 0.5rem;
+}
+
+.appointments__list {
+  padding-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .appointments__list {
+    padding: 1rem;
+  }
+}
+
+.appointments__item {
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  background: #faf6f2;
+}
+
+@media (min-width: 768px) {
+  .appointments__item {
+    margin-top: 1.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
+@media (min-width: 768px) {
+  .appointments__box {
+    width: 26%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .appointments__box {
+    width: 16.66%;
+  }
+}
+
+.appointments__label {
+  font-size: 16px;
+}
+
+.appointments__text {
+  padding-bottom: 1rem;
+  color: #683b2b;
+}
+
+.appointments__btn-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+.appointments__btn {
+  margin-top: 0.5rem;
+}
+
+.item__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.item__arrow {
+  margin: 0.25rem 0.5rem 0 0;
+}
+
+.item__title {
+  margin: 0;
+}
+
+.item__container {
+  padding: 1rem 1.5rem;
+  margin-top: 1.5rem;
+  background: #faf6f2;
+}
+
+.item__label {
+  font-size: 16px;
+}
+
+.item__text {
+  padding-bottom: 1rem;
+  color: #683b2b;
+}
+
+.item__btn-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+.item__btn {
+  margin-top: 0.5rem;
 }
 /*# sourceMappingURL=App.css.map */
