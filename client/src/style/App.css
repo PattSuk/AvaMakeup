@@ -458,7 +458,7 @@ label {
   .about__text {
     margin: 0;
     padding-left: 2.5rem;
-    padding-top: 0;
+    padding-top: 0.25rem;
   }
 }
 
