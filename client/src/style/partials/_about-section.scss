@@ -40,6 +40,11 @@
 
       @include desktop {
         padding-left: 4rem;
+
+        p {
+          font-size: 16px;
+          line-height: 30px;
+        }
       }
     }
   }

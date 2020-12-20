@@ -105,3 +105,25 @@
     content: attr(email-format);
   }
 }
+
+.email-error {
+  .booking__input {
+    border: 1px solid $error-color;
+  }
+
+  &[email-format]::after {
+    @extend .validation-error[data-error]::after;
+    content: attr(email-format);
+  }
+}
+
+.date-error {
+  .booking__input {
+    border: 1px solid $error-color;
+  }
+
+  &[date-validation]::after {
+    @extend .validation-error[data-error]::after;
+    content: attr(date-validation);
+  }
+}

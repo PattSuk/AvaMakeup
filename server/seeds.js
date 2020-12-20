@@ -28,4 +28,4 @@ const insertAdminData = async () => {
     })
 }
 
-// insertAdminData().then((res) => console.log(res));
+insertAdminData().then((res) => console.log(res));

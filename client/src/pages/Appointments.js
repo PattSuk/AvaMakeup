@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 function Appointments () {
     const [ appointments, setAppointments] = useState(null);
-    // const [ filtered, setFiltered ] = useState(null);
+    const [ filtered, setFiltered ] = useState(null);
 
     useEffect(() => {
         axios.get(`http://localhost:5000/customers`)
@@ -28,7 +28,21 @@ function Appointments () {
     }
 
     const filterResult = (event) => {
+        // const select = event.target.value;
+        // if (!appointments) {
 
+        // } else {
+        //     console.log(select);
+        //     if (select === "today") {
+        //         const today = new Date();
+        //          setFiltered(appointments.filter((date) => {
+        //             if(date.datetime > today && date < Date(today.getFullYear, today.getMonth, today.getDate+1)) {
+                            // return date;
+        //             }
+        //         }))
+        //         console.log(filtered);
+        //     }
+        // }
     }
 
     return (

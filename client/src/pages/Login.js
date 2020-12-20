@@ -1,6 +1,6 @@
 import { Redirect, useHistory } from 'react-router-dom';
 import axios from 'axios';
-// import swal from 'sweetalert';
+import swal from 'sweetalert';
 import profile from '../assets/images/profile-with-pumpkin.svg';
 
 function Login () {
@@ -26,14 +26,16 @@ function Login () {
                     history.push('/appointments')
                 }
             })
-            .catch((error) => error.response);
+            .catch((error) => {
+                handleStatus(error.response.status);
+            });
         }
     }
 
     const handleStatus = (status) => {
         if (status === 404) {
-            // swal("The username or password is incorrect", "error");
-            alert("The username or password is incorrect!");
+            swal("Opps!", "The username or password is incorrect!", "error");
+            // alert("The username or password is incorrect!");
             return false;
         }
         if (status === 200) {

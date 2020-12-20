@@ -1,7 +1,8 @@
 // import { newCustomer } from "../../../server/model/customerModel";
 import axios from 'axios';
-// import { useState } from 'react';
 import swal from 'sweetalert';
+
+import { phoneValidation, emailValidation, validateSubmit } from '../components/utilities/validation';
 
 function Booking (props) {
 
@@ -14,136 +15,75 @@ function Booking (props) {
 
 
         const form = event.target;
-        if (validateSubmit(form) && phoneValidation(form) && emailValidation(form)) {
+        if (validateSubmit(form) && phoneValidation(form) && emailValidation(form) && beforeToday(form) && validateImage(form)) {
             let eventId;
             if(form.event.value==="Wedding") {
-                eventId="3";
-            }else if(form.event.value==="Special Occasion") {
                 eventId="2";
-            }else if (form.event.value==="Photo Shoot") {
+            }else if(form.event.value==="Special Occasion") {
                 eventId="1";
+            }else if (form.event.value==="Photo Shoot") {
+                eventId="3";
             }
 
            const data = {firstName: form.firstName.value,
-            lastName: form.lastName.value,
-            streetAddress: form.streetAddress.value,
-            city: form.city.value,
-            postalCode: form.postalCode.value,
-            phone: form.phone.value,
-            email: form.email.value,
-            datetime: form.datetime.value,
-            message: form.message.value,
-            eventId: eventId
-        }
+                lastName: form.lastName.value,
+                streetAddress: form.streetAddress.value,
+                city: form.city.value,
+                postalCode: form.postalCode.value,
+                phone: form.phone.value,
+                email: form.email.value,
+                datetime: form.datetime.value,
+                message: form.message.value,
+                eventId: eventId
+            }
 
             axios.post(`http://localhost:5000/customers/photos`, formData)
                 .then((res) => { return res.data.name })
                 .then((file) => {
 
                     data.image = file
-                    console.log(data);
-                    console.log(form.firstName.value);
+                    // console.log(data);
+                    // console.log(form.firstName.value);
                     axios.post(`http://localhost:5000/customers`, data)
 
                 })
                 .then((_response) => {
-                swal("Thank you for booking with us!", "Please give us up to 24 hours to reply.", "success");
-                // alert("Please give us up to 24 hours to reply.")
-            }).catch((error) => {
-                console.log(error);
-            });
+                    swal("Thank you for booking with us!", "Please give us up to 24 hours to reply.", "success");
+                    // alert("Please give us up to 24 hours to reply.")
+                }).catch((error) => {
+                    console.log(error);
+                });
 
             form.reset();
         }
     }
 
-
-
-    const phoneValidation = (form) => {
-        const phoneFormat = /^\d{10}$/;
-        let passedPhoneCheck = true;
-
-        if (!form.phone.value.match(phoneFormat)) {
-            form.phone.parentElement.classList.add('phone-error');
-            passedPhoneCheck = false;
-        } else {
-            form.phone.parentElement.classList.remove('phone-error');
-        }
-        return passedPhoneCheck;
-    }
-
-    const emailValidation = (form) => {
-        const emailFormat = /\S+@\S+\.\S+/;
-        let passedEmailCheck = true;
-
-        if (!emailFormat.test(form.email.value)) {
-            form.email.parentElement.classList.add('email-error');
-            passedEmailCheck = false;
-        }
-        else {
-            form.email.parentElement.classList.remove('email-error');
-        }
-        return passedEmailCheck;
-    }
-
-    const validateSubmit = (form) => {
+    const validateImage = (form) => {
         let passedSubmitCheck = true;
 
-        if (!form.firstName.value.trim()) {
-            form.firstName.parentElement.classList.add('validation-error');
-            passedSubmitCheck = false;
-        } else {
-            form.firstName.parentElement.classList.remove('validation-error');
-        }
-        if (!form.lastName.value.trim()) {
-            form.lastName.parentElement.classList.add('validation-error');
-            passedSubmitCheck = false;
-        } else {
-            form.lastName.parentElement.classList.remove('validation-error');
-        }
-        if (!form.streetAddress.value.trim()) {
-            form.streetAddress.parentElement.classList.add('validation-error');
-            passedSubmitCheck = false;
-        } else {
-            form.streetAddress.parentElement.classList.remove('validation-error');
-        }
-        if (!form.city.value.trim()) {
-            form.city.parentElement.classList.add('validation-error');
-            passedSubmitCheck = false;
-        } else {
-            form.city.parentElement.classList.remove('validation-error');
-        }
-        if (!form.postalCode.value.trim()) {
-            form.postalCode.parentElement.classList.add('validation-error');
-            passedSubmitCheck = false;
-        } else {
-            form.postalCode.parentElement.classList.remove('validation-error');
-        }
-        if (!form.phone.value.trim()) {
-            form.phone.parentElement.classList.add('validation-error');
-            passedSubmitCheck = false;
-        } else {
-            form.phone.parentElement.classList.remove('validation-error');
-        }
-        if (!form.email.value.trim()) {
-            form.email.parentElement.classList.add('validation-error');
-            passedSubmitCheck = false;
-        } else {
-            form.email.parentElement.classList.remove('validation-error');
-        }
-        if (!form.datetime.value.trim()) {
-            form.datetime.parentElement.classList.add('validation-error');
-            passedSubmitCheck = false;
-        } else {
-            form.datetime.parentElement.classList.remove('validation-error');
-        }
         if (!form.image.value.trim()) {
             form.image.parentElement.classList.add('validation-error');
             passedSubmitCheck = false;
         } else {
             form.image.parentElement.classList.remove('validation-error');
         }
+        return passedSubmitCheck;
+    }
 
+    const beforeToday = (form) => {
+        let passedSubmitCheck = true;
+        const today = new Date();
+        const date = new Date(form.datetime.value);
+
+        console.log(today);
+        console.log(date);
+
+        if (date < today) {
+            form.datetime.parentElement.classList.add('date-error');
+            passedSubmitCheck = false;
+        } else {
+            form.datetime.parentElement.classList.remove('date-error');
+        }
         return passedSubmitCheck;
     }
 
@@ -161,7 +101,7 @@ function Booking (props) {
                     <div className="booking__container" data-error="This field is required">
                         <input className="booking__input" type="text" name="lastName" />
                     </div>
-                    <label className="booking__label">Getting Ready Location</label>
+                    <label className="booking__label">Location</label>
                     <div className="booking__container" data-error="This field is required">
                         <input className="booking__input" type="text" name="streetAddress" />
                     </div>
@@ -194,7 +134,7 @@ function Booking (props) {
                         {/* <input className="booking__input" type="text" name="event" defaultValue={props.location.state.event} /> */}
                     </div>
                     <label className="booking__label">Event Date &amp; Time</label>
-                    <div className="booking__container" data-error="Please select the date and time">
+                    <div className="booking__container" date-validation="The selected date is in the past." data-error="Please select the date and time">
                         <input className="booking__input" type="datetime-local" name="datetime" />
                     </div>
                     <label className="booking__label">Upload your photo with natural light</label>

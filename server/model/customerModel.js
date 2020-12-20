@@ -1,15 +1,5 @@
 const prisma = require('../prismaClient');
 
-// const newImage = async (fileName) => {
-//     return await prisma.image.create({
-//         data: {
-//             fileName:fileName
-//         }
-//     }).then((data) => {
-//         console.log(data);
-//     })
-// }
-
 const newCustomer = async (firstName, lastName, streetAddress, city, 
     postalCode, phone, email, datetime, image, message, eventId) => {
     return await prisma.user.create({
@@ -77,4 +67,42 @@ const getAppointmentById = async(id) => {
     })
 }
 
-module.exports = {newCustomer, getAllAppointments, getAppointmentById}
+const editAppointmentById = async(id, firstName, lastName, streetAddress, 
+    city, postalCode, phone, email, datetime, confirm, message, event) => {
+        const confirmed = (confirm) => {
+            if (confirm=== "true") {
+                return true;
+            } else if (confirm=== "false") {
+                return false;
+            } else {
+                return null;
+            }
+        }
+        
+        return await prisma.appointment.update({
+            where: { id : parseInt(id) },
+            data: {
+                datetime: datetime,
+                message: message,
+                confirm: confirmed(confirm),
+                User: {
+                    update: {
+                        first_name: firstName,
+                        last_name: lastName,
+                        street_address: streetAddress,
+                        city: city,
+                        postal_code: postalCode,
+                        phone: phone,
+                        email: email
+                    },
+                },
+                Event: {
+                    update: {
+                        type_of_event: event
+                    }
+                }
+            }
+        })
+}
+
+module.exports = {newCustomer, getAllAppointments, getAppointmentById, editAppointmentById}

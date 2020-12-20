@@ -9,6 +9,7 @@ import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Appointments from './pages/Appointments';
 import AppointmentsItem from './pages/AppointmentItem';
+import AppointmentsEdit from './pages/AppointmentEdit';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -21,7 +22,8 @@ ReactDOM.render(
         <Route path="/contact" component={Contact} />
         <Route path="/login" component={Login} />
         <Route path="/appointments" exact component={Appointments} />
-        <Route path="/appointments/:id" render = {(routerprops) => {return <AppointmentsItem routerprops={routerprops} />}} />
+        <Route path="/appointments/:id" exact render = {(routerprops) => {return <AppointmentsItem routerprops={routerprops} />}} />
+        <Route path="/appointments/:id/edit" render = {(routerprops) => {return <AppointmentsEdit routerprops={routerprops} />}} />
       </Switch>
     </BrowserRouter>
   </React.StrictMode>,

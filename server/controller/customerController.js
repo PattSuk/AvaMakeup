@@ -8,26 +8,9 @@ const getAllAppointments = async (_req, res) => {
     res.status(200).json(data);
 }
 
-const getAppointmentById = async (req, res) => {
-    // console.log(req.params);
-    const data = await customerModel.getAppointmentById(req.params.id);
-    // console.log(data);
-    
-    if (data) {
-        res.status(200).json(data);
-    } else {  
-        res.status(404).json({ error: "INVALID_USER_ID", message: "Appointment ID could not found"});
-    }
-    
-}
-
-// const newImage = async (req, res) => {
-//     await 
-// }
-
 const newCustomer = async (req, res) => {
-    console.log('file ----------', req.body.image);
-    console.log('body ----------', req.body);
+    // console.log('file ----------', req.body.image);
+    // console.log('body ----------', req.body);
 
     const {firstName, lastName, streetAddress, city, postalCode, phone, email, datetime, image, message, eventId} = req.body;
     if(!firstName || !lastName || !streetAddress || !city || !postalCode || !phone || !email || !datetime || !image || !eventId) {
@@ -48,4 +31,29 @@ const newCustomer = async (req, res) => {
    }
 }
 
-module.exports = {newCustomer,getAllAppointments, getAppointmentById};
+const getAppointmentById = async (req, res) => {
+    // console.log(req.params);
+    const data = await customerModel.getAppointmentById(req.params.id);
+    // console.log(data);
+    
+    if (data) {
+        res.status(200).json(data);
+    } else {  
+        res.status(404).json({ error: "INVALID_USER_ID", message: "Appointment ID could not found"});
+    }
+}
+
+const editAppointmentById = async (req, res) => {
+    const {firstName, lastName, streetAddress, city, postalCode, phone, email, datetime, confirm, message, event} = req.body;
+
+    await customerModel.editAppointmentById(req.params.id, firstName, lastName, streetAddress, 
+        city, postalCode, phone, email, datetime, confirm, message, event)
+        .then (() => res.status(201)
+            .json({
+            message: "Updated the appointment"
+        })).catch(error => {
+            console.log(error);
+        })
+}
+
+module.exports = {newCustomer,getAllAppointments, getAppointmentById, editAppointmentById};

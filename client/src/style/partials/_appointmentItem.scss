@@ -5,6 +5,7 @@
 
   &__arrow {
     margin: 0.25rem 0.5rem 0 0;
+    cursor: pointer;
   }
 
   &__title {
@@ -16,7 +17,25 @@
     padding: 1rem 1.5rem;
     margin-top: 1.5rem;
     background: $lighter-color;
+
+    @include tablet {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
   }
+
+  &__subcontainer {
+    @include tablet {
+      width: 30%;
+    }
+  }
+
+  // &__box {
+  //   @include tablet {
+  //     width: 26%;
+  //   }
+  // }
 
   &__label {
     font-size: 16px;
@@ -25,6 +44,12 @@
   &__text {
     padding-bottom: 1rem;
     color: $primary-text-color;
+  }
+
+  &__image {
+    padding-bottom: 1rem;
+    // width: 72%;
+    height: 213px;
   }
 
   &__btn-box {
@@ -37,5 +62,58 @@
   &__btn {
     @extend %btn;
     margin-top: 0.5rem;
+  }
+
+  &__input {
+    @extend %input-field;
+    margin: 0.25rem 0 0.5rem;
+    width: 100%;
+
+    &--textarea {
+      height: 85px;
+    }
+  }
+
+  &__submit {
+    @extend %btn;
+    font-family: "Sansita Swashed", cursive;
+    border: none;
+    margin: 0.5rem 0 2rem;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+
+.validation-error {
+  .item__input {
+    border: 1px solid $error-color;
+  }
+
+  &[data-error]::after {
+    @extend .validation-error[data-error]::after;
+  }
+}
+
+.phone-error {
+  .item__input {
+    border: 1px solid $error-color;
+  }
+
+  &[phone-format]::after {
+    @extend .validation-error[data-error]::after;
+    content: attr(phone-format);
+  }
+}
+
+.email-error {
+  .item__input {
+    border: 1px solid $error-color;
+  }
+
+  &[email-format]::after {
+    @extend .validation-error[data-error]::after;
+    content: attr(email-format);
   }
 }

@@ -21,10 +21,18 @@ CREATE TABLE `Event` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
+CREATE TABLE `Image` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `appointmentId` INT NOT NULL,
+    `fileName` VARCHAR(191) NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
 CREATE TABLE `Appointment` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `datetime` DATETIME(3) NOT NULL,
-    `image` VARCHAR(191) NOT NULL,
     `message` VARCHAR(191),
     `confirm` BOOLEAN,
     `userId` INT NOT NULL,
@@ -43,6 +51,9 @@ UNIQUE INDEX `Admin.username_unique`(`username`),
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- AddForeignKey
+ALTER TABLE `Image` ADD FOREIGN KEY (`appointmentId`) REFERENCES `Appointment`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `Appointment` ADD FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;

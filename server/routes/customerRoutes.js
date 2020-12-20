@@ -5,8 +5,16 @@ const { v4:uuidv4  } = require('uuid');
 const path = require('path');
 const customerController = require('../controller/customerController');
 
+// express.use("/image/images", express.static(path.join(__dirname, "/uploads")));
+
 const storage = multer.diskStorage({
-    destination: path.join(__dirname, "../uploads"),
+    // destination: path.join(__dirname, "../uploads"),
+    // destination: ("/image",express.static(path.join(__dirname, "../uploads"))),
+    
+    destination: (req, file, cb) => {
+        cb(null, "./uploads");
+      },
+    
     filename: (req, file, cb) => {
         // const newFilename = `${uuidv4()}${req.body.firstName}${path.extname(file.originalname)}`;
         const newFilename = `${uuidv4()}${path.extname(file.originalname)}`;
@@ -27,5 +35,7 @@ router.post('/photos', upload.any(), (req, res) => {
 });
 
 router.post('/', customerController.newCustomer);
+
+router.put('/:id', customerController.editAppointmentById);
 
 module.exports = router;

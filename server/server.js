@@ -3,6 +3,7 @@ const session = require('express-session');
 const cors = require('cors');
 const ora = require('ora');
 const passport = require('passport');
+const path = require('path');
 // const bodyParser = require('body-parser');
 
 const customerRoutes = require('./routes/customerRoutes');
@@ -15,6 +16,8 @@ const PORT = process.env.PORT;
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use("/image", express.static(path.join(__dirname, "/uploads")));
+
 app.use(cors({
     origin: "http://localhost:3000",
     credentials: true
