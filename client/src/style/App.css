@@ -662,7 +662,7 @@ label {
 
 @media (min-width: 768px) {
   .contact__img {
-    width: 50%;
+    width: 40%;
     margin-top: 1rem;
   }
 }

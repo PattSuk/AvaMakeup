@@ -1,6 +1,6 @@
 import facebook from '../assets/icons/facebook-pink.svg'
 import instagram from '../assets/icons/Icon-instagram-pink.svg'
-import profile from '../assets/images/profile-contact.jpg';
+import profile from '../assets/images/contact-img.JPG';
 
 function Contact () {
     return (

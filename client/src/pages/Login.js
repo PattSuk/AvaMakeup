@@ -1,7 +1,7 @@
 import { Redirect, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
-import profile from '../assets/images/profile-with-pumpkin.svg';
+import profile from '../assets/images/profile-with-pumpkin.jpg';
 
 function Login () {
     const history = useHistory();
