@@ -75,8 +75,8 @@ function Booking (props) {
         const today = new Date();
         const date = new Date(form.datetime.value);
 
-        console.log(today);
-        console.log(date);
+        // console.log(today);
+        // console.log(date);
 
         if (date < today) {
             form.datetime.parentElement.classList.add('date-error');

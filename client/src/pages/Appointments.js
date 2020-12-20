@@ -13,6 +13,7 @@ function Appointments () {
                 // console.log(response.data);
                 setAppointments(response.data);
                 // console.log(appointments);
+                setFiltered(response.data);
             })
             .catch(error => console.log(error));    
     },[]);
@@ -28,24 +29,53 @@ function Appointments () {
     }
 
     const filterResult = (event) => {
-        // const select = event.target.value;
-        // if (!appointments) {
+        const select = event.target.value;
+        if (!appointments) {
+            console.log("loading ...");
+        } else {
+            console.log(select);
+            if (select === "notConfirm") {
+                setFiltered(appointments.filter((item) => {
+                    if(item.confirm === null) {
+                        return item;
+                    }
+               }))
+               console.log(filtered);
 
-        // } else {
-        //     console.log(select);
-        //     if (select === "today") {
-        //         const today = new Date();
-        //          setFiltered(appointments.filter((date) => {
-        //             if(date.datetime > today && date < Date(today.getFullYear, today.getMonth, today.getDate+1)) {
-                            // return date;
-        //             }
-        //         }))
-        //         console.log(filtered);
-        //     }
-        // }
+            } else if (select === "confirmed") {
+                setFiltered(appointments.filter((item) => {
+                    if(item.confirm === true) {
+                        return item;
+                    }
+               }))
+               console.log(filtered);
+
+            } else if (select === "denied") {
+                setFiltered(appointments.filter((item) => {
+                    if(item.confirm === false) {
+                        return item;
+                    }
+               }))
+               console.log(filtered);
+
+            } else if (select === "today") {
+                const today = new Date().toLocaleDateString();
+                // console.log(today);
+                // console.log(appointments.datetime)
+                 setFiltered(appointments.filter((item) => {
+                     if(new Date(item.datetime).toLocaleDateString() === today) {
+                    // if(date.datetime > today && date < Date(today.getFullYear, today.getMonth, today.getDate+1)) {
+                            return item;
+                    }
+                }))
+                console.log(filtered);
+            } else {
+                setFiltered(appointments);
+            }
+        }
     }
 
-    return (
+    return ( 
         <section className="appointments">
             <h1 className="appointments__title">Appointments</h1>
             <label>Filter :</label>
@@ -57,7 +87,7 @@ function Appointments () {
                 <option value="today">Today</option>
             </select>
             <ul className="appointments__list">
-                {appointments && appointments.map((appointment) => (
+            {filtered && filtered.map((appointment) => (
                     <li  key={appointment.id} className="appointments__item">
                         <div className="appointments__box">
                             <h2 className="appointments__label">Name</h2>
