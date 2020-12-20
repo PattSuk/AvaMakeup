@@ -14,7 +14,7 @@ function Header(props) {
     }
 
     return (
-        <header className="header">
+        <header className="header" id="top">
             <div className="header__main">      
                 <Link to="/">
                     <img src={logo} alt="Logo"  className="header__logo" />  

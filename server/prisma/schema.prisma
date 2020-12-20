@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id             Int          @id @default(autoincrement())
+  first_name     String
+  last_name      String
+  street_address String
+  city           String
+  postal_code    String
+  phone          String
+  email          String
+  Appointment    Appointment?
+  // Appointment    Appointment[]
+}
+
+model Event {
+  id            Int           @id @default(autoincrement())
+  type_of_event String
+  Appointment   Appointment[]
+}
+
+model Image {
+  id            Int         @id @default(autoincrement())
+  Appointment   Appointment @relation(fields: [appointmentId], references: [id])
+  appointmentId Int
+  fileName      String
+}
+
+model Appointment {
+  id       Int      @id @default(autoincrement())
+  datetime DateTime
+  message  String?
+  confirm  Boolean?
+  User     User     @relation(fields: [userId], references: [id])
+  userId   Int      @unique
+  Event    Event    @relation(fields: [eventId], references: [id])
+  eventId  Int
+  Image    Image[]
+}
+
+model Admin {
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  password String
+}

@@ -53,6 +53,10 @@
     @include tablet {
       width: 31%;
       margin-bottom: 0;
+
+      @include desktop {
+        padding: 1.5rem;
+      }
     }
   }
 
