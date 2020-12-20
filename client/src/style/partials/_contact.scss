@@ -1,0 +1,65 @@
+.contact {
+  &__container {
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &__details {
+    margin-bottom: 1.5rem;
+
+    @include tablet {
+      width: 50%;
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+    font-size: 35px;
+
+    @include tablet {
+      font-size: 45px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 1rem;
+    font-size: 15px;
+
+    @include tablet {
+      font-size: 18px;
+    }
+  }
+
+  &__email {
+    color: $second-bg-color;
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+  }
+
+  &__follow {
+    font-size: 15px;
+
+    @include tablet {
+      font-size: 18px;
+    }
+  }
+
+  &__icon {
+    height: 30px;
+    margin-left: 0.5rem;
+  }
+
+  &__img {
+    width: 100%;
+    @extend %card;
+
+    @include tablet {
+      width: 40%;
+      margin-top: 1rem;
+    }
+  }
+}
