@@ -34,7 +34,7 @@ function Login () {
 
     const handleStatus = (status) => {
         if (status === 404) {
-            swal("Opps!", "The username or password is incorrect!", "error");
+            swal("Oops!", "The username or password is incorrect!", "error");
             // alert("The username or password is incorrect!");
             return false;
         }

@@ -24,7 +24,7 @@ function Appointments () {
         } else if (confirm) {
             return "Confirmed!"
         } else if (!confirm) {
-            return "Denied!"
+            return "Cancelled!"
         }
     }
 
@@ -50,7 +50,7 @@ function Appointments () {
                }))
                console.log(filtered);
 
-            } else if (select === "denied") {
+            } else if (select === "cancelled") {
                 setFiltered(appointments.filter((item) => {
                     if(item.confirm === false) {
                         return item;
@@ -81,9 +81,9 @@ function Appointments () {
             <label>Filter :</label>
             <select onChange={ filterResult } name="filter" className="appointments__filter">
                 <option value="all">All</option>
-                <option value="notConfirm">Not Confirm</option>
                 <option value="confirmed">Confirmed</option>
-                <option value="denied">Denied</option>
+                <option value="notConfirm">Not Confirmed</option>
+                <option value="cancelled">Cancelled</option>
                 <option value="today">Today</option>
             </select>
             <ul className="appointments__list">

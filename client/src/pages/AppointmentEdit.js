@@ -34,6 +34,8 @@ function AppointmentEdit ({ routerprops }) {
 
     const showDateTime = (datetime) => {
         const newDateTime = datetime.slice(0,16);
+        // let newDateTime = new Date(datetime).toISOString();
+        // newDateTime = newDateTime.slice(0,16);
         return newDateTime;
     }
 
