@@ -33,9 +33,9 @@ function AppointmentEdit ({ routerprops }) {
     }
 
     const showDateTime = (datetime) => {
+        // console.log(datetime);
         const newDateTime = datetime.slice(0,16);
-        // let newDateTime = new Date(datetime).toISOString();
-        // newDateTime = newDateTime.slice(0,16);
+        // console.log(newDateTime);
         return newDateTime;
     }
 
@@ -107,6 +107,7 @@ function AppointmentEdit ({ routerprops }) {
                         <h2 className="item__label">Event Date &amp; Time</h2>
                         <div className="item__input-box" data-error="This field is required">
                             <input className="item__input" type="datetime-local" name="datetime" defaultValue={showDateTime(detail.datetime)} />
+                            {/* <input className="item__input" type="datetime-local" name="datetime" defaultValue={detail.datetime} /> */}
                             {/* <p>{detail.datetime}</p> */}
                         </div>
                     </div>
