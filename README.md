@@ -24,3 +24,5 @@ The application is built with:
 - `/login` is where the owner would come in. For example `http://localhost:3000/login`.
 - The owner can filter the appointments by confirmed, not confirmed, cancelled, and today’s appointments.
 - If the owner needs more information she can click on more details to get the customer’s information to follow up with them through phone or email as well as update the information.
+
+>Check out my demo at https://bit.ly/3iplmVh
